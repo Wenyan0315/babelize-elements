@@ -1,6 +1,15 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import path from "node:path";
-import { getRegistryIndex, getRegistryItem } from "../src/registry/registry.ts";
+import ts from "typescript";
+
+const source = readFileSync(new URL("../src/registry/registry.ts", import.meta.url), "utf8");
+const { outputText } = ts.transpileModule(source, {
+  compilerOptions: { module: ts.ModuleKind.ESNext, target: ts.ScriptTarget.ES2022 },
+});
+const { getRegistryIndex, getRegistryItem } = await import(
+  `data:text/javascript;base64,${Buffer.from(outputText).toString("base64")}`
+);
 
 for (const definition of getRegistryIndex().items) {
   const item = getRegistryItem(definition.name);

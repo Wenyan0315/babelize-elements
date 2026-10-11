@@ -55,7 +55,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test:pack": "node scripts/smoke-pack.mjs",
-    "test:registry": "node --experimental-strip-types scripts/check-registry-imports.mjs"
+    "test:registry": "node scripts/check-registry-imports.mjs"
   },
   "repository": {
     "type": "git",
