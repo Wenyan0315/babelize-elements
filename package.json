@@ -50,11 +50,12 @@
     "lint": "eslint",
     "typecheck": "fumadocs-mdx && tsc --noEmit && tsc --project tsconfig.lib.json --noEmit",
     "prepublishOnly": "bun run build:lib",
-    "test": "vitest run",
+    "test": "vitest run && npm run test:registry",
     "test:watch": "vitest",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test:pack": "node scripts/smoke-pack.mjs"
+    "test:pack": "node scripts/smoke-pack.mjs",
+    "test:registry": "node --experimental-strip-types scripts/check-registry-imports.mjs"
   },
   "repository": {
     "type": "git",

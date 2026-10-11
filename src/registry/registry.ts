@@ -36,7 +36,7 @@ const ITEMS: ItemDef[] = [
     source: "registry/components/language-switcher",
     filePath: "ui/language-switcher.tsx",
     dependencies: ["clsx", "tailwind-merge"],
-    registryDependencies: ["locale-types", "use-controllable-state"],
+    registryDependencies: ["locale-types", "locale-data", "use-controllable-state"],
   },
   {
     name: "phone-input",
@@ -58,7 +58,7 @@ const ITEMS: ItemDef[] = [
     source: "registry/components/navbar",
     filePath: "ui/navbar.tsx",
     dependencies: ["clsx", "tailwind-merge"],
-    registryDependencies: ["locale-types", "use-controllable-state"],
+    registryDependencies: ["locale-types", "locale-data", "use-controllable-state"],
   },
   {
     name: "translation-widget",
@@ -70,6 +70,14 @@ const ITEMS: ItemDef[] = [
     filePath: "ui/translation-widget.tsx",
     dependencies: ["clsx", "tailwind-merge"],
     registryDependencies: ["language-switcher", "locale-types", "use-controllable-state"],
+  },
+  {
+    name: "locale-data",
+    title: "Locale Data",
+    description: "Shared flag, language-name and RTL lookups for locale-aware components.",
+    type: "registry:ui",
+    source: "registry/components/locale-data",
+    filePath: "ui/locale-data.ts",
   },
   {
     name: "locale-types",
